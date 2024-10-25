@@ -1,5 +1,28 @@
+/* src/App.css */
+:root {
+  --color-primary: #34C94B; /* Green */
+  --color-black: #121212; /* Black */
+  --color-white: #FFFFFF; /* White */
+}
+
 .App {
   text-align: center;
+  background-color: var(--color-black); /* Set the app background to black */
+  min-height: 100vh; /* Ensure the app takes the full height of the viewport */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align content towards the top */
+}
+
+.App-header {
+  background-color: var(--color-black); /* Consistent background for header */
+  width: 100%; /* Make the header take full width */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
 }
 
 .App-logo {
@@ -13,19 +36,14 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .App-link {
   color: #61dafb;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.App-link:hover {
+  color: var(--color-primary); /* Change link color on hover */
 }
 
 @keyframes App-logo-spin {

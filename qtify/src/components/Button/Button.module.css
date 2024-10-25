@@ -1,0 +1,16 @@
+.button {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-black);
+    color: var(--color-primary); /* Assuming --color-primary is your green (#34C94B) */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px; /* Adjust radius as needed */
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: var(--color-primary); /* Green background on hover */
+    color: var(--color-black); /* Black text on hover */
+  }
+  

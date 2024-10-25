@@ -1,0 +1,17 @@
+.hero {
+    background-color: var(--color-black);
+    height: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+    color: var(--color-white); /* Set text color to white */
+  }
+  
+  .hero h1 {
+    color: var(--color-white); /* Ensure h1 text is white */
+    font-size: 24px; /* Adjust size as needed */
+    margin: 0; /* Remove default margins for better alignment */
+  }
+  

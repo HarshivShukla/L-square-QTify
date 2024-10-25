@@ -1,0 +1,25 @@
+.navbar {
+  background-color: var(--color-primary);
+  height: 74px;
+  width: 100vw;
+  padding: 0px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* src/components/Navbar/Navbar.module.css */
+.searchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px; /* Adjust this to control the maximum size of the search container */
+  flex-grow: 1;
+  margin: 0 16px; /* Add some margin to center the search bar */
+}
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #FFFFFF; /* Ensure logo text is white */
+  margin-right: 16px; /* Add margin to space it from the search bar */
+}
