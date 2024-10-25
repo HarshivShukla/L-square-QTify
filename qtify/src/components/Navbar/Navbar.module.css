@@ -1,25 +1,18 @@
+/* src/components/Navbar/Navbar.module.css */
 .navbar {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary); /* Green background */
   height: 74px;
-  width: 100vw;
-  padding: 0px 32px;
+  width: 100%;
+  padding: 0 32px; /* Adjust padding for space on both sides of the navbar */
   display: flex;
-  align-items: center;
+  align-items: center; /* Center items vertically */
   justify-content: space-between;
 }
-/* src/components/Navbar/Navbar.module.css */
-.searchContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 500px; /* Adjust this to control the maximum size of the search container */
-  flex-grow: 1;
-  margin: 0 16px; /* Add some margin to center the search bar */
-}
+
 .logo {
   display: flex;
-  align-items: center;
+  align-items: center; /* Ensure the logo is vertically centered */
   text-decoration: none;
   color: #FFFFFF; /* Ensure logo text is white */
-  margin-right: 16px; /* Add margin to space it from the search bar */
+  margin-left: 16px; /* Add space to the left of the logo */
 }
