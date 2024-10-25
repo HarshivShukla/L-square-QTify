@@ -1,0 +1,49 @@
+/* src/components/Section/Section.module.css */
+.section {
+    margin: 24px;
+    width: 100%; /* Ensure the section takes up the full width */
+  }
+  
+  .sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the minimum width as needed */
+    gap: 16px; /* Space between cards */
+    width: 100%; /* Make sure the grid takes up full width */
+  }
+/* src/components/Section/Section.module.css */
+.section {
+    margin: 24px;
+    width: 100%; /* Ensure the section takes up the full width */
+  }
+  
+  .sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .title {
+    color: var(--color-white); /* Set the heading color to white */
+  }
+  
+  .collapseButton {
+    color: var(--color-primary); /* Set the button text color to green */
+    background: none; /* Remove background for a clean look */
+    border: none; /* Remove border */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 1rem; /* Adjust font size if needed */
+    font-family: 'Poppins', sans-serif; /* Use consistent font */
+  }
+  
+  .collapseButton:hover {
+    text-decoration: underline; /* Optional: Add underline on hover */
+  }
+    

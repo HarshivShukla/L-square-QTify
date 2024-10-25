@@ -1,0 +1,43 @@
+/* src/components/Card/Card.module.css */
+.card {
+    width: 100%;
+    max-width: 250px; /* Adjust as needed */
+    border-radius: 8px;
+    overflow: hidden; /* Ensures the image stays within the card boundaries */
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
+  
+  .cardMedia {
+    height: 200px; /* Adjust to your desired height */
+    object-fit: cover; /* Ensure the image covers the area without stretching */
+  }
+  
+  .cardContent {
+    background-color: var(--color-white); /* White background for text area */
+    padding: 8px 16px; /* Padding inside the card content */
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+  }
+  
+  .chipContainer {
+    display: flex;
+    justify-content: center; /* Center the chip horizontally */
+    margin-bottom: 8px; /* Add space below the chip */
+  }
+  
+  .chip {
+    background-color: var(--color-black); /* Black background for the chip */
+    color: var(--color-white); /* White text for the chip */
+    border-radius: 12px; /* Rounded corners for the chip */
+    padding: 0 8px; /* Padding inside the chip */
+  }
+  
+  .albumTitle {
+    font-size: 1rem;
+    color: var(--color-black); /* Album title text in black */
+    font-weight: 600; /* Bold title */
+  }
+  
