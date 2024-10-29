@@ -16,6 +16,7 @@ function App() {
         <Navbar searchData={searchData} />
         <Hero />
         <Section title="Top Albums" apiEndpoint="https://qtify-backend-labs.crio.do/albums/top" />
+        <Section title="New Albums" apiEndpoint="https://qtify-backend-labs.crio.do/albums/new" />
       </div>
     </Router>
   );

@@ -1,0 +1,26 @@
+/* Position the custom navigation buttons */
+.carousel-container {
+    position: relative;
+  }
+  
+  .custom-nav-left, .custom-nav-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+  
+  .custom-nav-left {
+    left: 10px;
+  }
+  
+  .custom-nav-right {
+    right: 10px;
+  }
+  
+  .swiper-custom-left,
+  .swiper-custom-right {
+    width: 24px; /* Adjust size as necessary */
+    height: 24px;
+  }
+  

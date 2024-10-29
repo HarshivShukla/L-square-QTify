@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from '../Card/Card';
+import Carousel from '../Carousel/Carousel'; // Import the Carousel component
 import styles from './Section.module.css';
 import { Button, Typography } from '@mui/material';
 
@@ -30,10 +31,22 @@ function Section({ title, apiEndpoint }) {
       <div className={styles.sectionHeader}>
         <Typography variant="h5" className={styles.title}>{title}</Typography>
         <Button onClick={toggleCollapse} className={styles.collapseButton}>
-          {isCollapsed ? 'Expand' : 'Collapse'}
+          {isCollapsed ? 'Show All' : 'Collapse'}
         </Button>
       </div>
-      {!isCollapsed && (
+      {isCollapsed ? (
+        <Carousel
+          items={albums}
+          renderItem={(album) => (
+            <Card
+              key={album.id}
+              image={album.image}
+              title={album.title}
+              follows={album.follows}
+            />
+          )}
+        />
+      ) : (
         <div className={styles.grid}>
           {albums.map((album) => (
             <Card
