@@ -7,7 +7,7 @@ import { Button, Typography } from '@mui/material';
 
 function Section({ title, apiEndpoint }) {
   const [albums, setAlbums] = useState([]);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCarousel, setIsCarousel] = useState(true); // Default to carousel view
 
   useEffect(() => {
     const fetchAlbums = async () => {
@@ -22,19 +22,19 @@ function Section({ title, apiEndpoint }) {
     fetchAlbums();
   }, [apiEndpoint]);
 
-  const toggleCollapse = () => {
-    setIsCollapsed(!isCollapsed);
+  const toggleView = () => {
+    setIsCarousel(!isCarousel);
   };
 
   return (
     <div className={styles.section}>
       <div className={styles.sectionHeader}>
         <Typography variant="h5" className={styles.title}>{title}</Typography>
-        <Button onClick={toggleCollapse} className={styles.collapseButton}>
-          {isCollapsed ? 'Show All' : 'Collapse'}
+        <Button onClick={toggleView} className={styles.toggleButton}>
+          {isCarousel ? 'Show All' : 'Collapse'}
         </Button>
       </div>
-      {isCollapsed ? (
+      {isCarousel ? (
         <Carousel
           items={albums}
           renderItem={(album) => (
