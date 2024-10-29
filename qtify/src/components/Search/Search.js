@@ -35,9 +35,9 @@ const Listbox = styled("ul")({
   },
 });
 
-function Search({ searchData = [], placeholder }) { // Ensure searchData has a default value
+function Search({ searchData = [], placeholder }) {
   const navigate = useNavigate();
-  
+
   const {
     getRootProps,
     getInputProps,
@@ -46,8 +46,8 @@ function Search({ searchData = [], placeholder }) { // Ensure searchData has a d
     groupedOptions,
   } = useAutocomplete({
     id: "use-autocomplete-demo",
-    options: searchData,
-    getOptionLabel: (option) => option.title,
+    options: Array.isArray(searchData) ? searchData : [], // Ensure options is an array
+    getOptionLabel: (option) => option.title || "", // Default to empty string if no title
   });
 
   const onSubmit = (e, value) => {
@@ -81,9 +81,14 @@ function Search({ searchData = [], placeholder }) { // Ensure searchData has a d
       {groupedOptions.length > 0 && (
         <Listbox {...getListboxProps()}>
           {groupedOptions.map((option, index) => {
-            const artists = option.songs.reduce((acc, song) => acc.concat(song.artists), []);
+            const artists = option.songs
+              ? option.songs.reduce((acc, song) => acc.concat(song.artists), [])
+              : [];
             return (
-              <li className={styles.listElement} {...getOptionProps({ option, index })}>
+              <li
+                className={styles.listElement}
+                {...getOptionProps({ option, index })}
+              >
                 <div>
                   <p className={styles.albumTitle}>{option.title}</p>
                   <p className={styles.albumArtists}>

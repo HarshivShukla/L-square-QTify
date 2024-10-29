@@ -5,7 +5,7 @@ import Search from '../Search/Search';
 import Button from '../Button/Button';
 import styles from './Navbar.module.css';
 
-function Navbar({ searchData = [] }) { // Ensure searchData has a default value
+function Navbar({ searchData = [] }) { // Ensure searchData is an array by default
   return (
     <nav className={styles.navbar}>
       <Link to="/" className={styles.logo}>
@@ -14,7 +14,7 @@ function Navbar({ searchData = [] }) { // Ensure searchData has a default value
       <div className={styles.searchContainer}>
         <Search
           placeholder="Search an album of your choice"
-          searchData={searchData} // Ensure searchData is passed correctly
+          searchData={Array.isArray(searchData) ? searchData : []} // Ensure array is passed
         />
       </div>
       <Button>Give Feedback</Button>
