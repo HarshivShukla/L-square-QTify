@@ -1,26 +1,51 @@
-/* Position the custom navigation buttons */
 .carousel-container {
-    position: relative;
-  }
-  
-  .custom-nav-left, .custom-nav-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-  }
-  
-  .custom-nav-left {
-    left: 10px;
-  }
-  
-  .custom-nav-right {
-    right: 10px;
-  }
-  
-  .swiper-custom-left,
-  .swiper-custom-right {
-    width: 24px; /* Adjust size as necessary */
-    height: 24px;
-  }
-  
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* Ensures content stays within the carousel */
+  padding: 10px 0;
+}
+
+/* Styling for custom navigation buttons */
+.custom-nav-left,
+.custom-nav-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: var(--color-primary); /* Custom color for navigation buttons */
+  border-radius: 50%; /* Circular buttons */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px; /* Increase size for better visibility */
+  height: 36px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for navigation buttons */
+.custom-nav-left:hover,
+.custom-nav-right:hover {
+  background-color: #28a745; /* Slightly darker shade on hover */
+}
+
+.custom-nav-left {
+  left: 15px; /* Adjust left position */
+}
+
+.custom-nav-right {
+  right: 15px; /* Adjust right position */
+}
+
+.swiper-custom-left,
+.swiper-custom-right {
+  width: 20px; /* Adjust size of the arrow icon */
+  height: 20px;
+  color: #fff; /* White color for the arrow icon */
+  transition: transform 0.2s ease; /* Animation for arrow */
+}
+
+.swiper-custom-left:hover,
+.swiper-custom-right:hover {
+  transform: scale(1.1); /* Slightly enlarge icon on hover */
+}

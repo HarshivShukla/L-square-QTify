@@ -1,43 +1,59 @@
-/* src/components/Card/Card.module.css */
 .card {
-    width: 100%;
-    max-width: 250px; /* Adjust as needed */
-    border-radius: 8px;
-    overflow: hidden; /* Ensures the image stays within the card boundaries */
-    background-color: var(--color-black);
-    color: var(--color-white);
-  }
-  
-  .cardMedia {
-    height: 200px; /* Adjust to your desired height */
-    object-fit: cover; /* Ensure the image covers the area without stretching */
-  }
-  
-  .cardContent {
-    background-color: var(--color-white); /* White background for text area */
-    padding: 8px 16px; /* Padding inside the card content */
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 8px;
-  }
-  
-  .chipContainer {
-    display: flex;
-    justify-content: center; /* Center the chip horizontally */
-    margin-bottom: 8px; /* Add space below the chip */
-  }
-  
-  .chip {
-    background-color: var(--color-black); /* Black background for the chip */
-    color: var(--color-white); /* White text for the chip */
-    border-radius: 12px; /* Rounded corners for the chip */
-    padding: 0 8px; /* Padding inside the chip */
-  }
-  
-  .albumTitle {
-    font-size: 1rem;
-    color: var(--color-black); /* Album title text in black */
-    font-weight: 600; /* Bold title */
-  }
-  
+  width: 100%;
+  max-width: 220px; /* Adjust width for a compact look */
+  border-radius: 8px;
+  overflow: hidden; /* Ensures the image stays within the card boundaries */
+  background-color: var(--color-black);
+  color: var(--color-white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.cardMedia {
+  height: 180px; /* Adjust height for image */
+  object-fit: cover; /* Ensure the image covers the area without stretching */
+  width: 100%;
+}
+
+.cardContent {
+  background-color: var(--color-white); /* White background for text area */
+  padding: 12px 16px; /* Padding inside the card content */
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
+  border-top: 1px solid #e0e0e0; /* Light border on top for separation */
+}
+
+.chipContainer {
+  display: flex;
+  justify-content: center; /* Center the chip horizontally */
+  margin-bottom: 8px; /* Add space below the chip */
+}
+
+.chip {
+  background-color: var(--color-black); /* Black background for the chip */
+  color: var(--color-white); /* White text for the chip */
+  border-radius: 16px; /* Rounded corners for the chip */
+  padding: 4px 12px; /* Padding inside the chip */
+  font-size: 0.8rem; /* Adjust font size */
+  font-weight: bold;
+}
+
+.albumTitle {
+  font-size: 1rem;
+  color: var(--color-black); /* Album title text in black */
+  font-weight: 600; /* Bold title */
+  margin: 0; /* Remove default margin */
+  line-height: 1.2;
+  text-align: center;
+  width: 100%;
+  white-space: nowrap; /* Prevent text wrap */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ellipsis for long text */
+}

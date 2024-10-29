@@ -1,0 +1,51 @@
+.songsSection {
+    width: 100%;
+    color: var(--color-white);
+    margin-top: 20px;
+    padding: 0 20px; /* Add some padding for better alignment */
+}
+
+.sectionTitle {
+    color: var(--color-white);
+    font-size: 1.5rem; /* Adjust title font size */
+    font-weight: bold;
+    margin-bottom: 16px;
+    text-align: left; /* Align the title to the left */
+    padding-left: 10px; /* Add padding to align with other sections */
+}
+
+.genreTabs {
+    margin-bottom: 16px;
+    background-color: var(--color-black);
+    border-bottom: 1px solid #333; /* Add subtle border to separate */
+    padding-left: 10px; /* Align tabs with section title */
+}
+
+/* Custom styles for Tab component */
+.MuiTab-root {
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: var(--color-white); /* Set unselected tab text color to white */
+    min-width: auto; /* Reduce tab width to make it more compact */
+    padding: 8px 16px; /* Adjust padding for better spacing */
+}
+
+/* Selected tab styling */
+.Mui-selected {
+    color: var(--color-primary) !important; /* Primary green color for selected text */
+    font-weight: bold; /* Make selected tab bold */
+}
+
+/* Custom underline for the selected tab */
+.MuiTabs-indicator {
+    background-color: var(--color-primary) !important; /* Primary green underline */
+    height: 3px; /* Increase thickness of underline */
+    border-radius: 2px; /* Add slight rounding to the underline */
+}
+
+/* Hover effect for tabs */
+.MuiTab-root:hover {
+    color: #ffffff; /* Change color to white on hover */
+    transition: color 0.3s ease; /* Smooth transition */
+}

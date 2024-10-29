@@ -3,7 +3,7 @@ import { Card as MuiCard, CardMedia, CardContent, Typography } from '@mui/materi
 import Chip from '@mui/material/Chip';
 import styles from './Card.module.css';
 
-function Card({ image, title, follows }) {
+function Card({ image, title, follows, likes, isSongSection }) {
   return (
     <MuiCard className={styles.card}>
       <CardMedia
@@ -14,7 +14,10 @@ function Card({ image, title, follows }) {
       />
       <CardContent className={styles.cardContent}>
         <div className={styles.chipContainer}>
-          <Chip label={`${follows} Follows`} className={styles.chip} />
+          <Chip 
+            label={`${isSongSection ? likes : follows} ${isSongSection ? 'Likes' : 'Follows'}`} 
+            className={styles.chip} 
+          />
         </div>
         <Typography variant="h6" className={styles.albumTitle}>
           {title}

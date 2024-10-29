@@ -13,20 +13,13 @@ function Carousel({ items, renderItem }) {
 
   return (
     <div className="carousel-container">
-      {/* Initialize Swiper with custom navigation */}
       <Swiper
         modules={[Navigation]}
         spaceBetween={16}
         slidesPerView={'auto'}
-        onBeforeInit={(swiper) => {
-          // Assign the refs to Swiper’s navigation
-          swiper.params.navigation.prevEl = prevRef.current;
-          swiper.params.navigation.nextEl = nextRef.current;
-        }}
-        onSwiper={(swiper) => {
-          // Update Swiper navigation to ensure the custom buttons are clickable
-          swiper.navigation.init();
-          swiper.navigation.update();
+        navigation={{
+          prevEl: prevRef.current,
+          nextEl: nextRef.current,
         }}
         breakpoints={{
           640: { slidesPerView: 1 },
@@ -41,13 +34,11 @@ function Carousel({ items, renderItem }) {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      {/* Custom Navigation Buttons */}
       <div ref={prevRef} className="custom-nav-left">
-        <LeftArrow onClick={() => prevRef.current?.click()} />
+        <LeftArrow />
       </div>
       <div ref={nextRef} className="custom-nav-right">
-        <RightArrow onClick={() => nextRef.current?.click()} />
+        <RightArrow />
       </div>
     </div>
   );

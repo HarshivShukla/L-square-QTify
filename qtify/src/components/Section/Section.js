@@ -1,59 +1,71 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from '../Card/Card';
-import Carousel from '../Carousel/Carousel'; // Import the Carousel component
+import Carousel from '../Carousel/Carousel';
 import styles from './Section.module.css';
 import { Button, Typography } from '@mui/material';
 
-function Section({ title, apiEndpoint }) {
-  const [albums, setAlbums] = useState([]);
-  const [isCarousel, setIsCarousel] = useState(true); // Default to carousel view
+function Section({ title, apiEndpoint, apiData = null, isSongSection = false }) {
+  const [data, setData] = useState([]);
+  const [isCarousel, setIsCarousel] = useState(true); 
 
   useEffect(() => {
-    const fetchAlbums = async () => {
+    // Set data directly if apiData is passed (for songs)
+    if (apiData) {
+      setData(apiData);
+      return;
+    }
+    // Otherwise, fetch data if apiEndpoint is provided
+    const fetchData = async () => {
       try {
         const response = await axios.get(apiEndpoint);
-        setAlbums(response.data);
+        setData(response.data);
       } catch (error) {
-        console.error('Error fetching albums:', error);
+        console.error(`Error fetching data from ${apiEndpoint}:`, error);
       }
     };
 
-    fetchAlbums();
-  }, [apiEndpoint]);
+    if (apiEndpoint) fetchData();
+  }, [apiEndpoint, apiData]);
 
-  const toggleView = () => {
-    setIsCarousel(!isCarousel);
-  };
+  const displayData = apiData || data;
 
   return (
     <div className={styles.section}>
       <div className={styles.sectionHeader}>
         <Typography variant="h5" className={styles.title}>{title}</Typography>
-        <Button onClick={toggleView} className={styles.toggleButton}>
-          {isCarousel ? 'Show All' : 'Collapse'}
-        </Button>
+        {!isSongSection && (
+          <Button onClick={() => setIsCarousel(!isCarousel)} className={styles.toggleButton}>
+            {isCarousel ? 'Show All' : 'Collapse'}
+          </Button>
+        )}
       </div>
-      {isCarousel ? (
+
+      {/* Carousel or Grid View */}
+      {isCarousel || isSongSection ? (
         <Carousel
-          items={albums}
-          renderItem={(album) => (
+          items={displayData}
+          renderItem={(item) => (
             <Card
-              key={album.id}
-              image={album.image}
-              title={album.title}
-              follows={album.follows}
+              key={item.id}
+              image={item.image}
+              title={item.title}
+              follows={!isSongSection ? item.follows : null}
+              likes={isSongSection ? item.likes : null}
+              isSongSection={isSongSection}
             />
           )}
         />
       ) : (
         <div className={styles.grid}>
-          {albums.map((album) => (
+          {displayData.map((item) => (
             <Card
-              key={album.id}
-              image={album.image}
-              title={album.title}
-              follows={album.follows}
+              key={item.id}
+              image={item.image}
+              title={item.title}
+              follows={!isSongSection ? item.follows : null}
+              likes={isSongSection ? item.likes : null}
+              isSongSection={isSongSection}
             />
           ))}
         </div>
